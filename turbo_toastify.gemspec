@@ -5,18 +5,21 @@ require "turbo_toastify/version"
 Gem::Specification.new do |spec|
   spec.name          = "turbo-toastify"
   spec.version       = TurboToastify::VERSION
-  spec.authors       = ["TurboToastify"]
+  spec.authors       = ["vasanthakumar-a"]
   spec.email         = ["vasanthakumara117@gmail.com"]
 
   spec.summary       = "Turbo and Stimulus friendly toast notifications for Rails."
   spec.description   = "A Rails gem that installs a framework-agnostic toast engine with Turbo and Stimulus integration."
-  spec.homepage      = "https://example.com/turbo-toastify"
+  spec.homepage      = "https://github.com/vasanthakumar-a/turbo_toastify"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "#{spec.homepage}/CHANGELOG.md"
+  spec.metadata = {
+    "source_code_uri"   => "https://github.com/vasanthakumar-a/turbo_toastify",
+    "changelog_uri"     => "https://github.com/vasanthakumar-a/turbo_toastify/blob/main/CHANGELOG.md",
+    "bug_tracker_uri"   => "https://github.com/vasanthakumar-a/turbo_toastify/issues",
+    "documentation_uri" => "https://github.com/vasanthakumar-a/turbo_toastify#readme"
+  }
 
   spec.files = Dir.chdir(__dir__) do
     Dir[
