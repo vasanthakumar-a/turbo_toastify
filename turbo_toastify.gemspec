@@ -1,0 +1,34 @@
+lib = File.expand_path("lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "turbo_toastify/version"
+
+Gem::Specification.new do |spec|
+  spec.name          = "turbo-toastify"
+  spec.version       = TurboToastify::VERSION
+  spec.authors       = ["TurboToastify"]
+  spec.email         = ["vasanthakumara117@gmail.com"]
+
+  spec.summary       = "Turbo and Stimulus friendly toast notifications for Rails."
+  spec.description   = "A Rails gem that installs a framework-agnostic toast engine with Turbo and Stimulus integration."
+  spec.homepage      = "https://example.com/turbo-toastify"
+  spec.license       = "MIT"
+  spec.required_ruby_version = ">= 3.0"
+
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/CHANGELOG.md"
+
+  spec.files = Dir.chdir(__dir__) do
+    Dir[
+      "lib/**/*",
+      "README.md",
+      "MIT-LICENSE"
+    ]
+  end
+
+  spec.require_paths = ["lib"]
+
+  spec.add_dependency "rails", ">= 7.0"
+  spec.add_dependency "stimulus-rails", ">= 1.0"
+  spec.add_dependency "turbo-rails", ">= 1.0"
+end
