@@ -1,13 +1,13 @@
 # TurboToastify
 
-`turbo_toastify` packages a lightweight toast notification system for Rails applications using Turbo + Stimulus.
+`turbo-toastify` packages a lightweight toast notification system for Rails applications using Turbo + Stimulus.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "turbo_toastify"
+gem "turbo-toastify"
 ```
 
 Then run:
