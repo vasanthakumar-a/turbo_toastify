@@ -49,6 +49,46 @@ def update
 end
 ```
 
+## Configuration
+
+### Global Defaults
+
+You can configure global defaults in the generated initializer file `config/initializers/turbo_toastify.rb`:
+
+```ruby
+Rails.application.config.turbo_toastify = {
+  position: "top-right",     # top-right, top-left, top-center, bottom-right, bottom-left, bottom-center
+  auto_close: 5000,          # duration in milliseconds
+  theme: "light",            # light, dark, colored
+  transition: "slide",       # slide, bounce, zoom, flip, fade
+  close_button: true,        # true, false
+  pause_on_hover: true,      # true, false
+  draggable: true            # true, false
+}
+```
+
+### Per-Request Overrides
+
+You can also customize the toast behaviors on a per-request basis by setting these specific `flash` keys in your controllers:
+
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `flash[:toast_position]` | `String` | `"top-right"` | Position of the toast (`top-right`, `top-left`, `top-center`, `bottom-right`, `bottom-left`, `bottom-center`). |
+| `flash[:toast_duration]` | `Integer` | `5000` | Duration in milliseconds before the toast auto-closes. |
+| `flash[:toast_theme]` | `String` | `"light"` | Visual theme of the toast (`light`, `dark`, or `colored`). |
+| `flash[:toast_transition]` | `String` | `"slide"` | Animation type (`slide`, `zoom`, `flip`, `bounce`). |
+| `flash[:toast_close_button]`| `Boolean` | `true` | Show or hide the close button. |
+| `flash[:toast_pause_on_hover]`| `Boolean` | `true` | Pause auto-closing when the mouse hovers over the toast. |
+| `flash[:toast_draggable]` | `Boolean` | `true` | Allow the toast to be dragged to close. |
+
+### Example Images
+
+![Light Theme Example](#)
+
+![Dark Theme Example](#)
+
+![Colored Theme Example](#)
+
 ## JavaScript usage
 
 TurboToastify exposes a global object if you wish to trigger toasts manually from your JavaScript code:
@@ -60,3 +100,17 @@ TurboToastify.info("Syncing...", { position: "bottom-center", transition: "zoom"
 TurboToastify.warning("Low storage", { theme: "dark", transition: "flip" })
 ```
 
+### JavaScript Configuration Options
+
+When calling the JavaScript methods (e.g., `TurboToastify.success()`, `TurboToastify.show()`), you can pass an `options` object as the second argument with the following properties:
+
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `position` | `String` | `"top-right"` | Position of the toast (`top-right`, `top-left`, `top-center`, `bottom-right`, `bottom-left`, `bottom-center`). |
+| `autoClose` | `Number` | `5000` | Duration in milliseconds before the toast auto-closes. |
+| `theme` | `String` | `"light"` | Visual theme of the toast (`light`, `dark`, or `colored`). |
+| `transition` | `String` | `"slide"` | Animation type (`slide`, `zoom`, `flip`, `bounce`). |
+| `closeButton` | `Boolean` | `true` | Show or hide the close button. |
+| `pauseOnHover` | `Boolean` | `true` | Pause auto-closing when the mouse hovers over the toast. |
+| `draggable` | `Boolean` | `true` | Allow the toast to be dragged to close. |
+| `type` | `String` | `"default"` | Toast styling type (`success`, `error`, `warning`, `info`, `default`). Automatically applied when using helper methods like `.success()`. |
