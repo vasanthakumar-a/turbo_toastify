@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "turbo_toastify/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "turbo_toastify"
+  spec.name          = "turbo-toastify"
   spec.version       = TurboToastify::VERSION
   spec.authors       = ["vasanthakumar-a"]
   spec.email         = ["vasanthakumara117@gmail.com"]
