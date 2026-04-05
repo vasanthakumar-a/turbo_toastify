@@ -83,11 +83,11 @@ You can also customize the toast behaviors on a per-request basis by setting the
 
 ### Example Images
 
-![Light Theme Example](#)
+<img width="346" height="85" alt="Light Theme Example" src="https://github.com/user-attachments/assets/b7a3123a-89a3-4f49-97ff-aa25f4b870d0" />
 
-![Dark Theme Example](#)
+<img width="338" height="87" alt="Dark Theme Example" src="https://github.com/user-attachments/assets/65671ac6-91d7-471f-9c03-6458023f3ae2" />
 
-![Colored Theme Example](#)
+<img width="339" height="83" alt="Colored Theme Example" src="https://github.com/user-attachments/assets/1c99ffdb-dc3c-4fef-aa16-b7eff08e0cde" />
 
 ## JavaScript usage
 
