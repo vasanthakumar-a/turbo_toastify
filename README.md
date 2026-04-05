@@ -1,60 +1,55 @@
 # TurboToastify
 
-`turbo-toastify` packages a lightweight toast notification system for Rails applications using Turbo + Stimulus.
+`turbo_toastify` packages a lightweight toast notification system for Rails applications using Turbo + Stimulus.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "turbo-toastify"
+gem "turbo_toastify"
 ```
 
 Then run:
 
 ```bash
 bundle install
-bin/rails generate turbo_toastify:install
 ```
 
-## What the installer adds
+## Usage
 
-- `app/javascript/toastify/index.js` (core toast engine)
-- `app/javascript/controllers/toast_controller.js` (Stimulus bridge)
-- `app/assets/stylesheets/turbo_toastify/toastify.css`
-- `app/views/shared/_flash.html.erb`
-- `config/initializers/turbo_toastify.rb`
-
-It also attempts to:
-
-- insert a permanent Turbo flash outlet in `app/views/layouts/application.html.erb`
-- include `<%= stylesheet_link_tag "toastify", "data-turbo-track": "reload" %>` in your layout
-- add an importmap pin for `toastify/index` when `config/importmap.rb` is present
-
-## Layout requirements
-
-Make sure your layout includes:
+Simply add the `<%= turbo_toastify %>` tag to your layout file `app/views/layouts/application.html.erb`. You do **not** need to install any JavaScript or CSS manually.
 
 ```erb
-<div id="flash-outlet"></div>
-<%= render "shared/flash" %>
+<body>
+  <%= yield %>
+  <%= turbo_toastify %>
+</body>
 ```
 
-## Controller usage
+Then, assign ordinary flash messages in your controllers to trigger toasts:
 
 ```ruby
 def create
   @post = Post.create!(post_params)
-  redirect_to posts_path, notice: "Post created successfully!"
+  redirect_to posts_path, success: "Post created successfully!"
 end
+```
 
+If you are using Turbo Streams:
+
+```ruby
 def update
   @post.update!(post_params)
   respond_to do |format|
     format.turbo_stream do
+      # Note: Flash messages assigned before a Turbo Stream response will automatically
+      # be rendered if you append the new flash messages to your flash outlet.
+      flash.now[:success] = "Updated successfully!"
+      
       render turbo_stream: [
         turbo_stream.replace(@post),
-        turbo_stream.append("flash-outlet", partial: "shared/flash")
+        turbo_stream.append("flash-outlet", turbo_toastify)
       ]
     end
   end
@@ -63,9 +58,12 @@ end
 
 ## JavaScript usage
 
+TurboToastify exposes a global object if you wish to trigger toasts manually from your JavaScript code:
+
 ```javascript
 TurboToastify.success("Saved!")
 TurboToastify.error("Failed to save", { autoClose: 8000, theme: "colored" })
 TurboToastify.info("Syncing...", { position: "bottom-center", transition: "zoom" })
 TurboToastify.warning("Low storage", { theme: "dark", transition: "flip" })
 ```
+
