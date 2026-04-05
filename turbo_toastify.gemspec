@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rails", ">= 7.0"
-  spec.add_dependency "stimulus-rails", ">= 1.0"
-  spec.add_dependency "turbo-rails", ">= 1.0"
+  spec.add_dependency "rails", ">= 7.0", "< 9.0"
+  spec.add_dependency "stimulus-rails", ">= 1.0", "< 3.0"
+  spec.add_dependency "turbo-rails", ">= 1.0", "< 3.0"
 end

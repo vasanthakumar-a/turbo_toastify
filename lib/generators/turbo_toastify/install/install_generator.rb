@@ -8,7 +8,7 @@ module TurboToastify
       def copy_assets_and_templates
         copy_file "app/javascript/toastify/index.js", "app/javascript/toastify/index.js"
         copy_file "app/javascript/controllers/toast_controller.js", "app/javascript/controllers/toast_controller.js"
-        copy_file "app/assets/stylesheets/toastify.css", "app/assets/stylesheets/toastify.css"
+        copy_file "app/assets/stylesheets/turbo_toastify/toastify.css", "app/assets/stylesheets/turbo_toastify/toastify.css"
         copy_file "app/views/shared/_flash.html.erb", "app/views/shared/_flash.html.erb"
         copy_file "config/initializers/turbo_toastify.rb", "config/initializers/turbo_toastify.rb"
       end

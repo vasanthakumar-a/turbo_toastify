@@ -21,7 +21,7 @@ bin/rails generate turbo_toastify:install
 
 - `app/javascript/toastify/index.js` (core toast engine)
 - `app/javascript/controllers/toast_controller.js` (Stimulus bridge)
-- `app/assets/stylesheets/toastify.css`
+- `app/assets/stylesheets/turbo_toastify/toastify.css`
 - `app/views/shared/_flash.html.erb`
 - `config/initializers/turbo_toastify.rb`
 
