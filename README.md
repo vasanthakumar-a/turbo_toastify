@@ -14,6 +14,7 @@ Then run:
 
 ```bash
 bundle install
+bin/rails generate turbo_toastify:install
 ```
 
 ## Usage
@@ -41,17 +42,9 @@ If you are using Turbo Streams:
 ```ruby
 def update
   @post.update!(post_params)
+  flash.now[:success] = "Updated successfully!"
   respond_to do |format|
-    format.turbo_stream do
-      # Note: Flash messages assigned before a Turbo Stream response will automatically
-      # be rendered if you append the new flash messages to your flash outlet.
-      flash.now[:success] = "Updated successfully!"
-      
-      render turbo_stream: [
-        turbo_stream.replace(@post),
-        turbo_stream.append("flash-outlet", turbo_toastify)
-      ]
-    end
+    format.turbo_stream
   end
 end
 ```
