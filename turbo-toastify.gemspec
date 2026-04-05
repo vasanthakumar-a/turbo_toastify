@@ -9,10 +9,10 @@ Gem::Specification.new do |spec|
   spec.email         = ["vasanthakumara117@gmail.com"]
 
   spec.summary       = "Turbo and Stimulus friendly toast notifications for Rails."
-  spec.description   = "A Rails gem that installs a framework-agnostic toast engine with Turbo and Stimulus integration."
+  spec.description   = "A lightweight Rails gem providing a framework-agnostic toast notification system with seamless Turbo and Stimulus integration."
   spec.homepage      = "https://github.com/vasanthakumar-a/turbo_toastify"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 3.0"
+  spec.required_ruby_version = ">= 1.9.3"
 
   spec.metadata = {
     "source_code_uri"   => "https://github.com/vasanthakumar-a/turbo_toastify",
@@ -31,7 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rails", ">= 7.0", "< 9.0"
-  spec.add_dependency "stimulus-rails", ">= 1.0", "< 3.0"
-  spec.add_dependency "turbo-rails", ">= 1.0", "< 3.0"
+  spec.add_dependency "rails", ">= 4.2", "< 9.0"
 end
